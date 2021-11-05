@@ -19,8 +19,9 @@ This code consists of the following:
   * PlayerHandTemplate.json, the adaptive card template, which is also installed in PokerBot.sln
 * The Suite ML Model (**still to be uploaded, coming soon**)
 
-You will also need VLC: [VLC]https://www.videolan.org/vlc/
-I am unable to place the card images in this repo, but you can download them yourselves at: [American Contract Bridge League Resource Center]https://acbl.mybigcommerce.com/52-playing-cards/
+You will also need VLC: [VLC](https://www.videolan.org/vlc/)
+
+I am unable to place the card images in this repo, but you can download them yourselves at: [American Contract Bridge League Resource Center](https://acbl.mybigcommerce.com/)52-playing-cards/
 
 Please read the blog post for a full description of the solution, however, the installation steps are:
 
@@ -41,31 +42,52 @@ Please read the blog post for a full description of the solution, however, the i
 
 **Configure**
 8. Deploy the function code to Azure
+
 9. Deploy the Bot code to Azure, you will need the urls of the Azure Function App(s) as part of the configuration in the Bot Framework Composer Solution
+
 10. Modify the Azure Percept IoT Hub device twin so that the Azure Percept uploads the Suite Model on startup (in the azureeyemodel)
+
 11. Configure the Azure Stream Analytics Job to read from the IoT Hub and to output with calls to the single function in the Percepts Function App (HandlePlayerCard).  The query to run in the job is in the blog post
+
 12. Configure VLC to use the "Scene Filter" to create a single, updating frame image on the local machine 
+
 13. In the Percept Functions configuration add:
+
     1. The lockfile container and lockfile filename
-    2. The frames container and frame filename 
+
+    2. The frames container and frame filename
     3. The Azure ComputerVision  and Azure FormsRecognizer account information and keys
+
     4. The PlayerCard function url
+
     5. The access key to the runtime storage account
+
 13. In the ContinuousFileTransfer application configure
-    1. The frames container and frame filename 
+
+    1. The frames container and frame filename
+
     2. The VLC "Scene Filter" location information
+
 14. In the Holdem Functions configuration add:
+
     1. The digital twins instance URL
+
     2. The access key to the runtime storage account
-    3. The Card Image location and a SAS key (from the Archive Storage Account).
+
+    3. The Card Image location and a SAS key (from the Archive Storage Account)
 
 **Starting Up**
 15. Turn on the Azure Percept DK
-15. Start both function apps
-16. Start the Streaming Analytics job
-17. Start the ContinuousFileTransfer application
-18. Start VLC.  You want to stream: rtsp://192.168.1.31:8554/raw, where substitute 192.168.1.31 for the IP address of your Percept
-19. Run the bot from whereever you deployed it.  You can run it from the Azure Test Web Chat panel in the Azure Portal or deploy it anywhere a bot can be deployed
+
+16. Start both function apps
+
+17. Start the Streaming Analytics job
+
+18. Start the ContinuousFileTransfer application
+
+19. Start VLC.  You want to stream: rtsp://192.168.1.31:8554/raw, where substitute 192.168.1.31 for the IP address of your Percept
+
+21. Run the bot from where ever you deployed it.  You can run it from the Azure Test Web Chat panel in the Azure Portal or deploy it anywhere a bot can be deployed
 
 Although there will be no updates to this repo, there will be no updates except that I will attempt to update all of the C# code (functions and ContinuousFileTransfer) to .Net 6 and Visual Studio 2022 in the December-January timeframe.
 
