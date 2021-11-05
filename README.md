@@ -17,7 +17,8 @@ This code consists of the following:
     * Poker Bot for publishing to Azure using the Bot Framework Composer, Version 2.1.1
 * PokerBot/AdaptiveCards Directoyr
   * PlayerHandTemplate.json, the adaptive card template, which is also installed in PokerBot.sln
-* The Suite ML Model (**still to be uploaded, coming soon**)
+* The Suite ML Model
+  * Suite-Detrmination-ML-Model/Suite-Detrmination-ML-Model (requires git lfs for download)
 
 You will also need VLC: [VLC](https://www.videolan.org/vlc/)
 
