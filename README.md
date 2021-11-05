@@ -41,6 +41,7 @@ Please read the blog post for a full description of the solution, however, the i
 8. Create an Azure FormsRecognizer Account
 
 **Configure**
+
 8. Deploy the function code to Azure
 
 9. Deploy the Bot code to Azure, you will need the urls of the Azure Function App(s) as part of the configuration in the Bot Framework Composer Solution
