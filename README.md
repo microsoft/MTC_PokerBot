@@ -74,6 +74,7 @@ Please read the blog post for a full description of the solution, however, the i
     3. The Card Image location and a SAS key (from the Archive Storage Account)
 
 **Starting Up**
+
 15. Turn on the Azure Percept DK
 
 16. Start both function apps
