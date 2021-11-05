@@ -1,0 +1,8 @@
+{
+  "$kind": "Microsoft.LuisRecognizer",
+  "id": "LUIS_GameDialog",
+  "applicationId": "=settings.luis.GameDialog_en_us_lu.appId",
+  "version": "=settings.luis.GameDialog_en_us_lu.version",
+  "endpoint": "=settings.luis.endpoint",
+  "endpointKey": "=settings.luis.endpointKey"
+}

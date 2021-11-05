@@ -1,0 +1,342 @@
+[import](common.lg)
+
+# SendActivity_ud7415()
+[Activity
+    Text = ${SendActivity_ud7415_text()}
+]
+
+# SendActivity_ud7415_text()
+- The current game status is:
+- This is what we have on the board
+- Here is the current game
+# PlayerHandCard(collection)
+- ```
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "${collection.player.Name}'s Hand",
+            "size": "Medium",
+            "weight": "Bolder",
+            "wrap": true
+        },
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": "auto",
+                            "items": [
+                                {
+                                    "type": "Image",
+                                    "url": "${collection.player.cards[0].imageUrl}",
+                                    "size": "Medium"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "${collection.player.cards[0].name}",
+                                    "horizontalAlignment": "Center",
+                                    "weight": "Default",
+                                    "wrap": true
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "width": "auto",
+                            "items": [
+                                {
+                                    "type": "Image",
+                                    "url": "${collection.player.cards[1].imageUrl}",
+                                    "size": "Medium"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "${collection.player.cards[1].name}",
+                                    "horizontalAlignment": "Center",
+                                    "weight": "Default",
+                                    "wrap": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "TextBlock",
+            "text": "${collection.player.descriptor}",
+            "size": "Medium",
+            "weight": "Bolder",
+            "wrap": true
+        }
+    ]
+}```
+# DisplayPlayerHand(collection)
+[Activity
+    Attachments = ${json(PlayerHandCard(collection))}
+]
+# SendActivity_JHTph4()
+- ${DisplayPlayerHand(dialog.gamestatus)}
+# DealerHandCard(collection)
+- ```
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "My Hand",
+            "size": "Medium",
+            "weight": "Bolder",
+            "wrap": true
+        },
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": "auto",
+                            "items": [
+                                {
+                                    "type": "Image",
+                                    "url": "${collection.dealer.cards[0].imageUrl}",
+                                    "size": "Medium"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "${collection.dealer.cards[0].name}",
+                                    "horizontalAlignment": "Center",
+                                    "weight": "Default",
+                                    "wrap": true
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "width": "auto",
+                            "items": [
+                                {
+                                    "type": "Image",
+                                    "url": "${collection.dealer.cards[1].imageUrl}",
+                                    "size": "Medium"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "${collection.dealer.cards[1].name}",
+                                    "horizontalAlignment": "Center",
+                                    "weight": "Default",
+                                    "wrap": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "TextBlock",
+            "text": "${collection.dealer.descriptor}",
+            "size": "Medium",
+            "weight": "Bolder",
+            "wrap": true
+        }
+    ]
+}```
+# DisplayDealerHand(collection)
+[Activity
+    Attachments = ${json(DealerHandCard(collection))}
+]
+# CommunityHandCard(collection)
+- ```
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "Community Cards",
+            "size": "medium",
+            "weight": "bolder",
+            "wrap": true
+        },
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": "auto",
+                            "items": [
+                                {
+                                    
+                                    "type": "Image",
+                                    "url": "${collection.community.cards[0].imageUrl}",
+                                    "size": "Medium"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "${collection.community.cards[0].name}",
+                                    "horizontalAlignment": "Center",
+                                    "weight": "Default",
+                                    "wrap": true
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "width": "auto",
+                            "items": [
+                                {
+                                    
+                                    "type": "Image",
+                                    "url": "${collection.community.cards[1].imageUrl}",
+                                    "size": "Medium"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "${collection.community.cards[1].name}",
+                                    "horizontalAlignment": "Center",
+                                    "weight": "Default",
+                                    "wrap": true
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "width": "auto",
+                            "items": [
+                                {
+                                    
+                                    "type": "Image",
+                                    "url": "${collection.community.cards[2].imageUrl}",
+                                    "size": "Medium"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "${collection.community.cards[2].name}",
+                                    "horizontalAlignment": "Center",
+                                    "weight": "Default",
+                                    "wrap": true
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "width": "auto",
+                            "items": [
+                                {
+                                    
+                                    "type": "Image",
+                                    "url": "${collection.community.cards[3].imageUrl}",
+                                    "size": "Medium"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "${collection.community.cards[3].name}",
+                                    "horizontalAlignment": "Center",
+                                    "weight": "Default",
+                                    "wrap": true
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "width": "auto",
+                            "items": [
+                                {
+                                    
+                                    "type": "Image",
+                                    "url": "${collection.community.cards[4].imageUrl}",
+                                    "size": "Medium"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "${collection.community.cards[4].name}",
+                                    "horizontalAlignment": "Center",
+                                    "weight": "Default",
+                                    "wrap": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}```
+# DisplayCommunityHand(collection)
+[Activity
+    Attachments = ${json(CommunityHandCard(collection))}
+]
+# SendActivity_X46iUO()
+- ${DisplayCommunityHand(dialog.gamestatus)}
+# SendActivity_G2CQOl()
+- ${DisplayDealerHand(dialog.gamestatus)}
+# SendActivity_KVeY3N_text()
+- I win! Better luck next time. ${conversation.gameoutput.display.displayStrings[5]}
+- I have: ${conversation.gameoutput.display.displayStrings[5]}. I win!
+- I'm so sorry that you have lost. ${conversation.gameoutput.display.displayStrings[5]}
+# SendActivity_KVeY3N()
+[Activity
+    Text = ${SendActivity_KVeY3N_text()}
+]
+
+# SendActivity_zigE0T()
+[Activity
+    Text = ${SendActivity_zigE0T_text()}
+]
+
+# SendActivity_zigE0T_text()
+- We have tied. ${conversation.gameoutput.display.displayStrings[5]}
+- A Tie.  What a coincidence! ${conversation.gameoutput.display.displayStrings[5]}
+- A tie.  We should play again.  ${conversation.gameoutput.display.displayStrings[5]}
+# SendActivity_BEpFRq_text()
+- You win! ${conversation.gameoutput.display.displayStrings[5]}
+- You have won. You had the better cards. ${conversation.gameoutput.display.displayStrings[5]}
+- You beat me.  You are a good player. ${conversation.gameoutput.display.displayStrings[5]}
+- Winner, Winner, Chicken Dinner! ${conversation.gameoutput.display.displayStrings[5]}
+# SendActivity_BEpFRq()
+[Activity
+    Text = ${SendActivity_BEpFRq_text()}
+]
+
+# SendActivity_auTyjn_text()
+- You are currently in the lead, ${conversation.gameoutput.player.Name}
+- You are ahead
+- You have a higher chance of winning.  Ask me if you want to see the STATISTICS
+# SendActivity_auTyjn()
+[Activity
+    Text = ${SendActivity_auTyjn_text()}
+]
+
+# SendActivity_LVvJVH_text()
+- We are perfectly matched right now
+- We are statistically tied
+- A tie situation.  The pressure is on.
+# SendActivity_LVvJVH()
+[Activity
+    Text = ${SendActivity_LVvJVH_text()}
+]
+
+# SendActivity_AlCQPn_text()
+- I am in the lead
+- I am currently ahead
+- I have am ahead and have a higher chance of winning.  Ask me if you want to see the STATISTICS
+# SendActivity_AlCQPn()
+[Activity
+    Text = ${SendActivity_AlCQPn_text()}
+]

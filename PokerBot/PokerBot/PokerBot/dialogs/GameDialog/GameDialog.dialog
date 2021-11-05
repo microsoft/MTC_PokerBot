@@ -1,0 +1,655 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "IrYHcJ",
+    "name": "GameDialog",
+    "comment": "Play a game of Digital Twins Texas Hold 'em"
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "mZdaCt"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "3Mmi6u",
+            "comment": "0 == game not created\n1 == game created, but no player cards have been specified\n2 == game created, and the first player card has been specified\n3 == game created, and player cards have been specified, so the game has been initially dealt\n4 == flop was dealt\n5 == turn was dealt\n6 == river was dealt, game over"
+          },
+          "condition": "conversation.gamestage > 0 && conversation.gamestage < 6",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "lkj7VF"
+              },
+              "property": "conversation.gamestage",
+              "value": "=int(\"0\")"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "KNHqQM"
+          },
+          "condition": "conversation.gamestage < 3",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.ConfirmInput",
+              "$designer": {
+                "id": "60oZ7u"
+              },
+              "defaultLocale": "en-us",
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": false,
+              "unrecognizedPrompt": "",
+              "invalidPrompt": "",
+              "defaultValueResponse": "",
+              "prompt": "${ConfirmInput_Prompt_60oZ7u()}",
+              "choiceOptions": {
+                "includeNumbers": true
+              },
+              "property": "dialog.restart"
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "bc3UZz"
+              },
+              "condition": "=dialog.restart",
+              "actions": [
+                {
+                  "$kind": "Microsoft.ReplaceDialog",
+                  "$designer": {
+                    "id": "sVxJVb"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "DealDialog"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "hA8WyE"
+                  },
+                  "property": "conversation.gamestage",
+                  "value": "=int(\"0\")"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "jj9rWm"
+          },
+          "condition": "=user.name != undefined",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.TextInput",
+              "$designer": {
+                "id": "XwYAv1"
+              },
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": false,
+              "unrecognizedPrompt": "",
+              "invalidPrompt": "",
+              "defaultValueResponse": "",
+              "prompt": "${TextInput_Prompt_XwYAv1()}",
+              "property": "user.name"
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "FKbV9p"
+              },
+              "condition": "=toLower(user.name) != \"cancel\"",
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "Ovt09l"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "CancelDialog"
+                },
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "Th9rnR"
+                  },
+                  "property": "user.name"
+                },
+                {
+                  "$kind": "Microsoft.RepeatDialog",
+                  "$designer": {
+                    "id": "py6N2J"
+                  },
+                  "activityProcessed": true
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.ConfirmInput",
+              "$designer": {
+                "id": "d2M7Mm"
+              },
+              "defaultLocale": "en-us",
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": false,
+              "unrecognizedPrompt": "",
+              "invalidPrompt": "",
+              "defaultValueResponse": "",
+              "prompt": "${ConfirmInput_Prompt_d2M7Mm()}",
+              "choiceOptions": {
+                "includeNumbers": true
+              },
+              "property": "conversation.needinstructions"
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "X7Kh12"
+              },
+              "condition": "=conversation.needinstructions",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "Q8wBfj"
+                  },
+                  "activity": "${SendActivity_Q8wBfj()}"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "fiBqff"
+                  },
+                  "activity": "${SendActivity_fiBqff()}"
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "fn5XnP"
+              },
+              "condition": "=conversation.needinstructions != undefined",
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.ConfirmInput",
+                  "$designer": {
+                    "id": "70Ff9w"
+                  },
+                  "defaultLocale": "en-us",
+                  "disabled": false,
+                  "maxTurnCount": 3,
+                  "alwaysPrompt": false,
+                  "allowInterruptions": false,
+                  "unrecognizedPrompt": "",
+                  "invalidPrompt": "",
+                  "defaultValueResponse": "",
+                  "prompt": "${ConfirmInput_Prompt_70Ff9w()}",
+                  "choiceOptions": {
+                    "includeNumbers": true
+                  },
+                  "property": "conversation.needinstructions"
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "jqNIjO"
+                  },
+                  "condition": "=conversation.needinstructions",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "gEnIeH"
+                      },
+                      "activity": "${SendActivity_gEnIeH()}"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "Avt9nO"
+                      },
+                      "activity": "${SendActivity_Avt9nO()}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "Z4AJl8"
+          },
+          "condition": "conversation.gamestage > 0",
+          "actions": [],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.HttpRequest",
+              "$designer": {
+                "id": "65NSLG"
+              },
+              "resultProperty": "turn.results",
+              "method": "POST",
+              "url": "${settings.CreateGameUrl}",
+              "body": {
+                "playerName": "${user.name}"
+              }
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "5iALW0"
+              },
+              "condition": "turn.results.statusCode == 200",
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "XYGB8c"
+                  },
+                  "activity": "${SendActivity_XYGB8c()}"
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "qWGZCM"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "CancelDialog"
+                }
+              ],
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "vDd2lH"
+                  },
+                  "property": "conversation.gamestage",
+                  "value": "=int(\"1\")"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "JCtl23"
+          },
+          "condition": "conversation.gamestage > 1",
+          "actions": [],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.TextInput",
+              "$designer": {
+                "id": "AGvhpI"
+              },
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": false,
+              "prompt": "${TextInput_Prompt_AGvhpI()}",
+              "unrecognizedPrompt": "",
+              "invalidPrompt": "",
+              "property": "dialog.card1",
+              "validations": []
+            },
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "7Cj1hw"
+              },
+              "property": "dialog.card1U",
+              "value": "=toUpper(dialog.card1)"
+            },
+            {
+              "$kind": "Microsoft.SwitchCondition",
+              "$designer": {
+                "id": "IXY4u4"
+              },
+              "condition": "dialog.card1U",
+              "cases": [
+                {
+                  "value": "CANCEL",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "17hpSU"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "CancelDialog"
+                    },
+                    {
+                      "$kind": "Microsoft.RepeatDialog",
+                      "$designer": {
+                        "id": "tG6One"
+                      },
+                      "activityProcessed": true
+                    }
+                  ]
+                },
+                {
+                  "value": "CAMERA",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "Ptlc3h"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "CameraCard"
+                    },
+                    {
+                      "$kind": "Microsoft.RepeatDialog",
+                      "$designer": {
+                        "id": "EsxHTn"
+                      },
+                      "activityProcessed": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.HttpRequest",
+              "$designer": {
+                "id": "TBlr09"
+              },
+              "resultProperty": "turn.results",
+              "method": "POST",
+              "url": "${settings.PlayerCardUrl}",
+              "body": {
+                "card": "${dialog.card1U}"
+              }
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "e9N0Uh"
+              },
+              "condition": "turn.results.statusCode == 200",
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "lGOYPZ"
+                  },
+                  "activity": "${SendActivity_lGOYPZ()}"
+                },
+                {
+                  "$kind": "Microsoft.RepeatDialog",
+                  "$designer": {
+                    "id": "hvubNM"
+                  },
+                  "activityProcessed": true
+                }
+              ],
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "tq7g4v"
+                  },
+                  "property": "conversation.gamestage",
+                  "value": "=int(\"2\")"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "5HZ1xK"
+          },
+          "condition": "conversation.gamestage > 2",
+          "actions": [],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.TextInput",
+              "$designer": {
+                "id": "Q0NFWi"
+              },
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": false,
+              "unrecognizedPrompt": "",
+              "invalidPrompt": "",
+              "defaultValueResponse": "",
+              "prompt": "${TextInput_Prompt_Q0NFWi()}",
+              "property": "dialog.card2"
+            },
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "SMafrY"
+              },
+              "property": "dialog.card2U",
+              "value": "=toUpper(dialog.card2)"
+            },
+            {
+              "$kind": "Microsoft.SwitchCondition",
+              "$designer": {
+                "id": "nVTrpS"
+              },
+              "condition": "dialog.card2U",
+              "cases": [
+                {
+                  "value": "CANCEL",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "hVIHaR"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "CancelDialog"
+                    },
+                    {
+                      "$kind": "Microsoft.RepeatDialog",
+                      "$designer": {
+                        "id": "c3rrfp"
+                      },
+                      "activityProcessed": true
+                    }
+                  ]
+                },
+                {
+                  "value": "CAMERA",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "KC4cOK"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "CameraCard"
+                    },
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "tS05MD"
+                      },
+                      "condition": "=conversation.gamestage==3",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.EndDialog",
+                          "$designer": {
+                            "id": "k6CLag"
+                          }
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.RepeatDialog",
+                          "$designer": {
+                            "id": "5eBudy"
+                          },
+                          "activityProcessed": true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "KRZUds"
+              },
+              "condition": "dialog.card1U == dialog.card2U",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "pKoaUq"
+                  },
+                  "activity": "${SendActivity_pKoaUq()}"
+                },
+                {
+                  "$kind": "Microsoft.RepeatDialog",
+                  "$designer": {
+                    "id": "ykXTOL"
+                  },
+                  "activityProcessed": true
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.HttpRequest",
+              "$designer": {
+                "id": "qNjmBY"
+              },
+              "resultProperty": "turn.results",
+              "method": "POST",
+              "url": "${settings.PlayerCardUrl}",
+              "body": {
+                "card": "${dialog.card2U}"
+              },
+              "contentType": "application/json"
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "uztfkd"
+              },
+              "condition": "turn.results.statusCode == 200",
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "llQR6P"
+                  },
+                  "activity": "${SendActivity_llQR6P()}"
+                },
+                {
+                  "$kind": "Microsoft.RepeatDialog",
+                  "$designer": {
+                    "id": "ejilfl"
+                  },
+                  "activityProcessed": true
+                }
+              ],
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "YsmISP"
+                  },
+                  "property": "conversation.gamestage",
+                  "value": "=int(\"3\")"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "O46J8i"
+          },
+          "resultProperty": "turn.results",
+          "method": "POST",
+          "url": "${settings.CurrentGameStatusUrl}",
+          "contentType": "application/json",
+          "body": {
+            "playerName": "${user.name}"
+          }
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "BAdoKm"
+          },
+          "condition": "turn.results.statusCode == 200",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "5pbhG2"
+              },
+              "activity": "${SendActivity_5pbhG2()}"
+            },
+            {
+              "$kind": "Microsoft.EndDialog",
+              "$designer": {
+                "id": "LCKtWC"
+              }
+            }
+          ],
+          "actions": []
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "hXtpP2"
+          },
+          "property": "conversation.gameoutput",
+          "value": "=turn.results.content"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "PjZiY6"
+          },
+          "activityProcessed": true,
+          "dialog": "GameTextDisplay"
+        }
+      ]
+    }
+  ],
+  "generator": "GameDialog.lg",
+  "recognizer": "GameDialog.lu.qna",
+  "id": "GameDialog"
+}

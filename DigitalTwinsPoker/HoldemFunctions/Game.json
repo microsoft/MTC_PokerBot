@@ -1,0 +1,47 @@
+{
+  "@id": "dtmi:games:Game;1",
+  "@type": "Interface",
+  "displayName": "Game",
+  "@context": "dtmi:dtdl:context;2",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "Name",
+      "schema": "string"
+    },
+    {
+      "@type": "Property",
+      "name": "PotentialWinner",
+      "schema": "string"
+    },
+    {
+      "@type": "Property",
+      "name": "ProbabilityOfWinning",
+      "schema": "float"
+    },
+    {
+      "@type": "Property",
+      "name": "PlayerName",
+      "schema": "string"
+    },
+    {
+      "@type": "Property",
+      "name": "GameType",
+      "schema": "string"
+    },
+    {
+      "@type": "Relationship",
+      "@id": "dtmi:games:game_has_hands;1",
+      "name": "has_hands",
+      "displayName": "has_hands",
+      "target": "dtmi:games:Hand;1"
+    },
+    {
+      "@type": "Relationship",
+      "@id": "dtmi:games:game_has_decks;1",
+      "name": "has_decks",
+      "displayName": "has_decks",
+      "target": "dtmi:games:Deck;1"
+    }
+  ]
+}

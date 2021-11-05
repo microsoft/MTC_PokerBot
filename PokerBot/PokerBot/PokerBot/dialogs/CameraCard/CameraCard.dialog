@@ -1,0 +1,309 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "fn3mNp",
+    "name": "CameraCard",
+    "comment": "Loops and then checks the game for a card.  The camera is connected to the game DT, not the bot"
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "bhKyD5"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "sZarHk"
+          },
+          "activity": "${SendActivity_sZarHk()}"
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "HfLokD"
+          },
+          "resultProperty": "turn.results",
+          "method": "GET",
+          "url": "${settings.SleepyUrl}"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "BQ70AB"
+          },
+          "activity": "${SendActivity_BQ70AB()}"
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "4I0bh9"
+          },
+          "resultProperty": "turn.results",
+          "method": "GET",
+          "url": "${settings.SleepyUrl}"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "x2skTp"
+          },
+          "activity": "${SendActivity_x2skTp()}"
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "43LS1Z"
+          },
+          "resultProperty": "turn.results",
+          "method": "GET",
+          "url": "${settings.SleepyUrl}"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "AIU9ky"
+          },
+          "activity": "${SendActivity_AIU9ky()}"
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "0CU5sK"
+          },
+          "resultProperty": "turn.results",
+          "method": "GET",
+          "url": "${settings.SleepyUrl}"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "D7Mqt7"
+          },
+          "activity": "${SendActivity_D7Mqt7()}"
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "tIgoZc"
+          },
+          "resultProperty": "turn.results",
+          "method": "POST",
+          "url": "${settings.CurrentGameStatusUrl}",
+          "contentType": "application/json",
+          "body": {
+            "playerName": "${user.name}"
+          }
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "467hrX"
+          },
+          "condition": "turn.results.statusCode == 200",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "4IOtLC"
+              },
+              "activity": "${SendActivity_4IOtLC()}"
+            },
+            {
+              "$kind": "Microsoft.CancelAllDialogs",
+              "$designer": {
+                "id": "HCjiK6"
+              },
+              "activityProcessed": true
+            }
+          ],
+          "actions": []
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "OZ0XUR"
+          },
+          "property": "conversation.gameoutput",
+          "value": "=turn.results.content"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "VN2tvv"
+          },
+          "activity": "${SendActivity_VN2tvv()}"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "m8Xwaf"
+          },
+          "condition": "=count(conversation.gameoutput.player.cards)==0",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "1be8OH"
+              },
+              "condition": "=count(conversation.gameoutput.player.cards)==1",
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "YqfYIA"
+                  },
+                  "activity": "${SendActivity_YqfYIA()}"
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "3SFPob"
+                  },
+                  "activity": "${SendActivity_3SFPob()}"
+                },
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "JiKbzR"
+                  },
+                  "property": "conversation.gamestage",
+                  "value": "=int(\"3\")"
+                }
+              ],
+              "actions": [
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "kZ6Ho5"
+                  },
+                  "condition": "=conversation.gamestage==1",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "5AGnsI"
+                      },
+                      "activity": "${SendActivity_5AGnsI()}"
+                    },
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "SOQoZV"
+                      },
+                      "activity": "${SendActivity_SOQoZV()}"
+                    },
+                    {
+                      "$kind": "Microsoft.SetProperty",
+                      "$designer": {
+                        "id": "eY11Vs"
+                      },
+                      "property": "conversation.gamestage",
+                      "value": "=int(\"2\")"
+                    },
+                    {
+                      "$kind": "Microsoft.EndDialog",
+                      "$designer": {
+                        "id": "QyGyv5"
+                      }
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "oRmvMf"
+                      },
+                      "activity": "${SendActivity_oRmvMf()}"
+                    },
+                    {
+                      "$kind": "Microsoft.EndDialog",
+                      "$designer": {
+                        "id": "wtlET0"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "oWp9ol"
+              },
+              "activity": "${SendActivity_oWp9ol()}"
+            },
+            {
+              "$kind": "Microsoft.EndDialog",
+              "$designer": {
+                "id": "NJFvwW"
+              }
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "OniV6U"
+          },
+          "resultProperty": "turn.results",
+          "method": "POST",
+          "url": "${settings.CurrentGameStatusUrl}",
+          "contentType": "application/json",
+          "body": {
+            "playerName": "${user.name}"
+          }
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "K0dTu9"
+          },
+          "condition": "turn.results.statusCode == 200",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "0fcgrR"
+              },
+              "activity": "${SendActivity_0fcgrR()}"
+            },
+            {
+              "$kind": "Microsoft.EndDialog",
+              "$designer": {
+                "id": "zIKMAz"
+              }
+            }
+          ],
+          "actions": []
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "4C4AIA"
+          },
+          "property": "conversation.gameoutput",
+          "value": "=turn.results.content"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "KzW3XW"
+          },
+          "activityProcessed": true,
+          "dialog": "GameTextDisplay"
+        }
+      ]
+    }
+  ],
+  "generator": "CameraCard.lg",
+  "recognizer": "CameraCard.lu.qna",
+  "id": "CameraCard"
+}

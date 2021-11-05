@@ -1,0 +1,142 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "rauaWZ",
+    "name": "DealDialog",
+    "comment": "Once the game is set up, this get's the dealer to deal the flop, turn, river"
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "LZ3qLx"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "2OWSRR"
+          },
+          "condition": "conversation.gamestage >= 3 && conversation.gamestage < 6",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "24DOn8"
+              },
+              "activity": "${SendActivity_24DOn8()}"
+            },
+            {
+              "$kind": "Microsoft.CancelAllDialogs",
+              "$designer": {
+                "id": "4bk5uc"
+              },
+              "activityProcessed": true
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "tsnlQP"
+          },
+          "resultProperty": "turn.results",
+          "method": "POST",
+          "url": "${settings.FlopTurnRiverUrl}"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "pfNxuz"
+          },
+          "condition": "turn.results.statusCode == 200",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "evmCXx"
+              },
+              "activity": "${SendActivity_evmCXx()}"
+            },
+            {
+              "$kind": "Microsoft.CancelAllDialogs",
+              "$designer": {
+                "id": "aRRAwM"
+              },
+              "activityProcessed": true
+            }
+          ],
+          "actions": []
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "RhDv3c"
+          },
+          "property": "conversation.gamestage",
+          "value": "=conversation.gamestage + 1"
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "y7Xn7S"
+          },
+          "resultProperty": "turn.results",
+          "method": "POST",
+          "url": "${settings.CurrentGameStatusUrl}",
+          "contentType": "application/json",
+          "body": {
+            "playerName": "${user.name}"
+          }
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "nRhPLm"
+          },
+          "condition": "turn.results.statusCode == 200",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "fM54My"
+              },
+              "activity": "${SendActivity_fM54My()}"
+            },
+            {
+              "$kind": "Microsoft.CancelAllDialogs",
+              "$designer": {
+                "id": "GFDlt0"
+              },
+              "activityProcessed": true
+            }
+          ],
+          "actions": []
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "IRhCBd"
+          },
+          "property": "conversation.gameoutput",
+          "value": "=turn.results.content"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "ZtaqLR"
+          },
+          "activityProcessed": true,
+          "dialog": "GameTextDisplay"
+        }
+      ]
+    }
+  ],
+  "generator": "DealDialog.lg",
+  "recognizer": "DealDialog.lu.qna",
+  "id": "DealDialog"
+}

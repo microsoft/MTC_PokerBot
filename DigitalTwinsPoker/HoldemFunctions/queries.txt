@@ -1,0 +1,24 @@
+full graph
+SELECT * FROM digitaltwins
+
+select all cards
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:games:Card;1')
+
+select the 3 of diamonds
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:games:Card;1') and $dtId = '30'
+or
+SELECT D FROM DIGITALTWINS D WHERE D.$dtId = '30'
+or
+SELECT D FROM DIGITALTWINS D WHERE D.Value = '3' and D.Suite = 'Diamond'
+
+All cards in the deck
+SELECT D, C FROM DIGITALTWINS D JOIN C RELATED D.has_cards WHERE D.$dtId = 'Deck'  
+
+All hands in the game
+SELECT G, C FROM DIGITALTWINS G JOIN C RELATED G.has_hands WHERE G.$dtId = 'Game'  
+
+The 3rd card in the deck and the relationship
+SELECT D, C, R FROM DIGITALTWINS D JOIN C RELATED D.has_cards R WHERE D.$dtId = 'Deck' and R.cardOrder = 2
+
+Just the 3rd card in the deck
+SELECT C FROM DIGITALTWINS D JOIN C RELATED D.has_cards R WHERE D.$dtId = 'Deck' and R.cardOrder = 2 

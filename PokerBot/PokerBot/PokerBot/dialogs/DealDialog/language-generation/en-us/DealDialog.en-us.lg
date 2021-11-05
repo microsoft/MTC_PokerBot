@@ -1,0 +1,22 @@
+[import](common.lg)
+
+# SendActivity_24DOn8()
+[Activity
+    Text = ${SendActivity_24DOn8_text()}
+]
+
+# SendActivity_24DOn8_text()
+- You don't currently have a game in progress, so I cannot deal the cards.  Tell me to PLAY A GAME if you want to start a game
+# SendActivity_evmCXx_text()
+- I'm sorry, I don't seem to be able to play right now.  Something is wrong.
+# SendActivity_evmCXx()
+[Activity
+    Text = ${SendActivity_evmCXx_text()}
+]
+
+# SendActivity_fM54My_text()
+- For some reason, I am not able to see the game in progress.  This is an error.  You probably should try restarting the game
+# SendActivity_fM54My()
+[Activity
+    Text = ${SendActivity_fM54My_text()}
+]

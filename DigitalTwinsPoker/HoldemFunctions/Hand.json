@@ -1,0 +1,67 @@
+{
+  "@id": "dtmi:games:Hand;1",
+  "@type": "Interface",
+  "displayName": "Hand",
+  "@context": "dtmi:dtdl:context;2",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "Name",
+      "schema": "string"
+    },
+    {
+      "@type": "Property",
+      "name": "ProbabilityOfWinning",
+      "schema": "float"
+    },
+    {
+      "@type": "Property",
+      "name": "HandType",
+      "schema": "string"
+    },
+    {
+      "@type": "Property",
+      "name": "HighCard",
+      "schema": "string"
+    },
+    {
+      "@type": "Property",
+      "name": "SecondHighCard",
+      "schema": "string"
+    },
+    {
+      "@type": "Property",
+      "name": "ThirdHighCard",
+      "schema": "string"
+    },
+    {
+      "@type": "Property",
+      "name": "FourthHighCard",
+      "schema": "string"
+    },
+    {
+      "@type": "Property",
+      "name": "FifthHighCard",
+      "schema": "string"
+    },
+    {
+      "@type": "Property",
+      "name": "Potentials",
+      "schema": "string"
+    },
+    {
+      "@type": "Relationship",
+      "@id": "dtmi:games:hand_has_cards;1",
+      "name": "has_cards",
+      "displayName": "has_cards",
+      "target": "dtmi:games:Card;1",
+      "properties": [
+        {
+          "name": "cardOrder",
+          "@type": "Property",
+          "schema": "integer"
+        }
+      ]
+    }
+  ]
+}

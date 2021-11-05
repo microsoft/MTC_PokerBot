@@ -1,0 +1,22 @@
+{
+  "PokerBot.en-us": {
+    "rootDialog": true,
+    "triggers": {
+      "": [
+        "WelcomeDialog.en-us"
+      ],
+      "Help": [
+        "HelpDialog.en-us"
+      ],
+      "PlayGame": [
+        "GameDialog.en-us"
+      ],
+      "DealFTR": [
+        "DealDialog.en-us"
+      ],
+      "Statistics": [
+        "StatisticsDialog.en-us"
+      ]
+    }
+  }
+}

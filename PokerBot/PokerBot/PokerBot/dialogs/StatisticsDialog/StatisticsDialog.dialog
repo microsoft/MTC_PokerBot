@@ -1,0 +1,50 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "bCzjcd",
+    "name": "StatisticsDialog",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "zZM66Z"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "2JDbPK"
+          },
+          "condition": "=conversation.gamestage > 2",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "a7nQQH"
+              },
+              "activity": "${SendActivity_a7nQQH()}"
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "Ud8Doj"
+              },
+              "activity": "${SendActivity_Ud8Doj()}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "StatisticsDialog.lg",
+  "recognizer": "StatisticsDialog.lu.qna",
+  "id": "StatisticsDialog"
+}

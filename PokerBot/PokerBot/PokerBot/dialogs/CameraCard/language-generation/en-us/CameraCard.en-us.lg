@@ -1,0 +1,103 @@
+[import](common.lg)
+
+# SendActivity_sZarHk()
+[Activity
+    Text = ${SendActivity_sZarHk_text()}
+]
+
+# SendActivity_sZarHk_text()
+- Face the card at the camera, please.
+# SendActivity_BQ70AB()
+[Activity
+    Text = ${SendActivity_BQ70AB_text()}
+]
+
+# SendActivity_BQ70AB_text()
+- 3
+# SendActivity_x2skTp()
+[Activity
+    Text = ${SendActivity_x2skTp_text()}
+]
+
+# SendActivity_x2skTp_text()
+- 2
+# SendActivity_AIU9ky()
+[Activity
+    Text = ${SendActivity_AIU9ky_text()}
+]
+
+# SendActivity_AIU9ky_text()
+- 1
+# SendActivity_D7Mqt7()
+[Activity
+    Text = ${SendActivity_D7Mqt7_text()}
+]
+
+# SendActivity_D7Mqt7_text()
+- CHEESE!
+# SendActivity_4IOtLC_text()
+- I'm sorry, I don't seem to be able to play right now.  Something is wrong.
+# SendActivity_4IOtLC()
+[Activity
+    Text = ${SendActivity_4IOtLC_text()}
+]
+
+# SendActivity_5AGnsI()
+[Activity
+    Text = ${SendActivity_5AGnsI_text()}
+]
+
+# SendActivity_5AGnsI_text()
+- I see your first card
+- First card, got it
+- That's a good first card....maybe
+# SendActivity_YqfYIA_text()
+- I see your second card
+- Second card, whoo boy!
+- There's your second card, it's a game!
+# SendActivity_YqfYIA()
+[Activity
+    Text = ${SendActivity_YqfYIA_text()}
+]
+
+# SendActivity_oWp9ol()
+[Activity
+    Text = ${SendActivity_oWp9ol_text()}
+]
+
+# SendActivity_oWp9ol_text()
+- I cannot seem to read your card.  Can you move it slightly and try again?
+# SendActivity_oRmvMf_text()
+- I cannot seem to read your card.  Can you move it slightly and try again?
+# SendActivity_oRmvMf()
+[Activity
+    Text = ${SendActivity_oRmvMf_text()}
+]
+
+# SendActivity_0fcgrR_text()
+- For some reason, I am not able to see the game in progress.  This is an error.  You probably should try restarting the game
+# SendActivity_0fcgrR()
+[Activity
+    Text = ${SendActivity_0fcgrR_text()}
+]
+
+# SendActivity_VN2tvv()
+[Activity
+    Text = ${SendActivity_VN2tvv_text()}
+]
+
+# SendActivity_VN2tvv_text()
+- The count is ${count(conversation.gameoutput.player.cards)}
+# SendActivity_SOQoZV()
+[Activity
+    Text = ${SendActivity_SOQoZV_text()}
+]
+
+# SendActivity_SOQoZV_text()
+- Please remove your card from the camera
+# SendActivity_3SFPob_text()
+- Please remove your card from the camera
+# SendActivity_3SFPob()
+[Activity
+    Text = ${SendActivity_3SFPob_text()}
+]

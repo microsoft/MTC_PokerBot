@@ -1,0 +1,16 @@
+[import](common.lg)
+
+# SendActivity_a7nQQH()
+[Activity
+    Text = ${SendActivity_a7nQQH_text()}
+]
+
+# SendActivity_a7nQQH_text()
+- There is no game in progress
+# SendActivity_Ud8Doj()
+[Activity
+    Text = ${SendActivity_Ud8Doj_text()}
+]
+
+# SendActivity_Ud8Doj_text()
+- ${conversation.gameoutput.display.displayStrings[5]}

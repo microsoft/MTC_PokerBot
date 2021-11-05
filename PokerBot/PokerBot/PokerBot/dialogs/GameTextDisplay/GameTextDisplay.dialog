@@ -1,0 +1,176 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "c5ygy9",
+    "name": "GameTextDisplay",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "pXitIU",
+        "comment": "oonly game stage 3, 4, 5 and 6 are supported"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "ud7415"
+          },
+          "activity": "${SendActivity_ud7415()}"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "tLFEXZ"
+          },
+          "property": "dialog.gamestatus",
+          "value": "=conversation.gameoutput"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "G2CQOl"
+          },
+          "activity": "${SendActivity_G2CQOl()}"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "tmjCTp"
+          },
+          "condition": "conversation.gamestage > 3",
+          "elseActions": [],
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "X46iUO"
+              },
+              "activity": "${SendActivity_X46iUO()}"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "JHTph4"
+          },
+          "activity": "${SendActivity_JHTph4()}"
+        },
+        {
+          "$kind": "Microsoft.SwitchCondition",
+          "$designer": {
+            "id": "TQR4ru"
+          },
+          "cases": [
+            {
+              "value": "3",
+              "actions": []
+            },
+            {
+              "value": "6",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SwitchCondition",
+                  "$designer": {
+                    "id": "jvXjux"
+                  },
+                  "condition": "conversation.gameoutput.display.displayStrings[4]",
+                  "cases": [
+                    {
+                      "value": "Tie",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "zigE0T"
+                          },
+                          "activity": "${SendActivity_zigE0T()}"
+                        }
+                      ]
+                    },
+                    {
+                      "value": "Dealer",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "KVeY3N"
+                          },
+                          "activity": "${SendActivity_KVeY3N()}"
+                        }
+                      ]
+                    }
+                  ],
+                  "default": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "BEpFRq"
+                      },
+                      "activity": "${SendActivity_BEpFRq()}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "condition": "conversation.gamestage",
+          "default": [
+            {
+              "$kind": "Microsoft.SwitchCondition",
+              "$designer": {
+                "id": "Xl3utq"
+              },
+              "condition": "conversation.gameoutput.display.displayStrings[4]",
+              "cases": [
+                {
+                  "value": "Tie",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "LVvJVH"
+                      },
+                      "activity": "${SendActivity_LVvJVH()}"
+                    }
+                  ]
+                },
+                {
+                  "value": "Dealer",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "AlCQPn"
+                      },
+                      "activity": "${SendActivity_AlCQPn()}"
+                    }
+                  ]
+                }
+              ],
+              "default": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "auTyjn"
+                  },
+                  "activity": "${SendActivity_auTyjn()}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "GameTextDisplay.lg",
+  "recognizer": "GameTextDisplay.lu.qna",
+  "id": "GameTextDisplay"
+}

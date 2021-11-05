@@ -1,0 +1,27 @@
+{
+  "@id": "dtmi:games:Deck;1",
+  "@type": "Interface",
+  "displayName": "Deck",
+  "@context": "dtmi:dtdl:context;2",
+  "contents": [
+      {
+        "@type": "Property",
+        "name": "Name",
+        "schema": "string"
+      },
+      {
+        "@type": "Relationship",
+        "@id": "dtmi:games:deck_has_cards;1",
+        "name": "has_cards",
+        "displayName": "has_cards",
+        "target": "dtmi:games:Card;1",
+        "properties": [
+          {
+            "name": "cardOrder",
+            "@type": "Property",
+            "schema": "integer"
+          }
+        ]
+      }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+  "@id": "dtmi:games:Card;1",
+  "@type": "Interface",
+  "displayName": "Card",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "Value",
+      "schema": "string"
+    },
+    {
+      "@type": "Property",
+      "name": "NumericalValue",
+      "schema": "integer"
+    },
+    {
+      "@type": "Property",
+      "name": "Suite",
+      "schema": "string"
+    },
+    {
+      "@type": "Property",
+      "name": "Color",
+      "schema": "string"
+    }
+  ],
+  "@context": "dtmi:dtdl:context;2"
+}

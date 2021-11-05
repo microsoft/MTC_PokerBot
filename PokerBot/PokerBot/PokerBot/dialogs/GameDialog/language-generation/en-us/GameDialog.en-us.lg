@@ -1,0 +1,108 @@
+[import](common.lg)
+
+# TextInput_Prompt_XwYAv1()
+[Activity
+    Text = ${TextInput_Prompt_XwYAv1_text()}
+]
+
+# TextInput_Prompt_XwYAv1_text()
+- Ok, let's play a game.  What is your name?
+# SendActivity_Q8wBfj()
+[Activity
+    Text = ${SendActivity_Q8wBfj_text()}
+]
+
+# SendActivity_Q8wBfj_text()
+- One of these days I am going to figure out how to play the game, but let's go anyway.  You seem smart.  I'm sure you will figure it out. This may take a few seconds.
+# SendActivity_fiBqff()
+[Activity
+    Text = ${SendActivity_fiBqff_text()}
+]
+
+# SendActivity_fiBqff_text()
+- I thought you looked knowledgeable, let's start.  This may take a few seconds.
+# SendActivity_gEnIeH()
+[Activity
+    Text = ${SendActivity_gEnIeH_text()}
+]
+
+# SendActivity_gEnIeH_text()
+- I still do not know how to play, myself.  Let's just start and figure it out as we go along.
+# SendActivity_Avt9nO()
+[Activity
+    Text = ${SendActivity_Avt9nO_text()}
+]
+
+# SendActivity_Avt9nO_text()
+- All righty then, continuing on with the game
+# SendActivity_XYGB8c_text()
+- I'm sorry, I don't seem to be able to play right now.  Something is wrong.
+# SendActivity_XYGB8c()
+[Activity
+    Text = ${SendActivity_XYGB8c_text()}
+]
+
+# TextInput_Prompt_AGvhpI_text()
+- The game is all set up.  What is your first card? (CAMERA to use the camera, or CANCEL)
+- What is your first card? (CAMERA to use the camera, or CANCEL)
+- We are ready to start.  What is your first card? (CAMERA to use the camera, or CANCEL)
+# TextInput_Prompt_AGvhpI()
+[Activity
+    Text = ${TextInput_Prompt_AGvhpI_text()}
+]
+
+# SendActivity_lGOYPZ_text()
+- That is not a valid card.  Cards start with a number or a letter (J, Q, K, A) and are then followed by a suite letter (S, H, D, C).  eg: 10H, AS
+# SendActivity_lGOYPZ()
+[Activity
+    Text = ${SendActivity_lGOYPZ_text()}
+]
+
+# SendActivity_llQR6P_text()
+- That is not a valid card.  Cards start with a number or a letter (J, Q, K, A) and are then followed by a suite letter (S, H, D, C).  eg: 10H, AS
+# SendActivity_llQR6P()
+[Activity
+    Text = ${SendActivity_llQR6P_text()}
+]
+
+# TextInput_Prompt_Q0NFWi_text()
+- What is your second card?
+# TextInput_Prompt_Q0NFWi()
+[Activity
+    Text = ${TextInput_Prompt_Q0NFWi_text()}
+]
+
+# SendActivity_pKoaUq_text()
+- I'm sorry, but you entered the same card twice, let's start again.
+# SendActivity_pKoaUq()
+[Activity
+    Text = ${SendActivity_pKoaUq_text()}
+]
+
+# ConfirmInput_Prompt_60oZ7u()
+[Activity
+    Text = ${ConfirmInput_Prompt_60oZ7u_text()}
+]
+
+# ConfirmInput_Prompt_60oZ7u_text()
+- Do you want to continue the game already in progress? (You should have asked me to DEAL, not to PLAY)
+# ConfirmInput_Prompt_70Ff9w()
+[Activity
+    Text = ${ConfirmInput_Prompt_70Ff9w_text()}
+]
+
+# ConfirmInput_Prompt_70Ff9w_text()
+- ${user.name}, do you need instructions on how to play?
+# SendActivity_5pbhG2_text()
+- For some reason, I am not able to see the game in progress.  This is an error.  You probably should try restarting the game
+# SendActivity_5pbhG2()
+[Activity
+    Text = ${SendActivity_5pbhG2_text()}
+]
+
+# ConfirmInput_Prompt_d2M7Mm_text()
+- It is nice to meet you ${user.name}.  Do you need instructions on how to play this game.
+# ConfirmInput_Prompt_d2M7Mm()
+[Activity
+    Text = ${ConfirmInput_Prompt_d2M7Mm_text()}
+]

@@ -1,0 +1,31 @@
+[import](common.lg)
+
+# SendActivity_WelcomeReturningUser()
+[Activity
+    Text = ${SendActivity_WelcomeReturningUser_text()}
+]
+
+# SendActivity_WelcomeReturningUser_text()
+- 🖐️ Welcome back! I am the Digital Twins Poker Bot.
+- 🖐️ Hello again! I am the Digital Twins Poker Bot.
+- 🖐️ Good to see you again. I am the Digital Twins Poker Bot.
+- 🖐️ Hey, there! I am the Digital Twins Poker Bot.
+# SendActivity_WelcomeNewUser()
+[Activity
+    Text = ${SendActivity_WelcomeNewUser_text()}
+]
+
+# SendActivity_WelcomeNewUser_text()
+- 🖐️ Hey, there! I am the Digital Twins Poker Bot.
+- 🖐️ Hi! I am the Digital Twins Poker Bot.
+- 🖐️ Hello! I am the Digital Twins Poker Bot.
+
+> Imported: ecb31044e0e5c0b54f49870e6872f158
+- 🖐️ Hello! I am the Digital Twins Poker Bot.
+# SendActivity_0yba2X()
+[Activity
+    Text = ${SendActivity_0yba2X_text()}
+]
+
+# SendActivity_0yba2X_text()
+- All I can do right now is play a manual game of Texas Hold 'Em, where you tell me your cards. Type PLAY GAME to begin.
