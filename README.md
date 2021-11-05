@@ -42,17 +42,15 @@ Please read the blog post for a full description of the solution, however, the i
 
 **Configure**
 
-8. Deploy the function code to Azure
+9. Deploy the function code to Azure
+10. Deploy the Bot code to Azure, you will need the urls of the Azure Function App(s) as part of the configuration in the Bot Framework Composer Solution
+11. Modify the Azure Percept IoT Hub device twin so that the Azure Percept uploads the Suite Model on startup (in the azureeyemodel)
 
-9. Deploy the Bot code to Azure, you will need the urls of the Azure Function App(s) as part of the configuration in the Bot Framework Composer Solution
+12. Configure the Azure Stream Analytics Job to read from the IoT Hub and to output with calls to the single function in the Percepts Function App (HandlePlayerCard).  The query to run in the job is in the blog post
 
-10. Modify the Azure Percept IoT Hub device twin so that the Azure Percept uploads the Suite Model on startup (in the azureeyemodel)
+13. Configure VLC to use the "Scene Filter" to create a single, updating frame image on the local machine 
 
-11. Configure the Azure Stream Analytics Job to read from the IoT Hub and to output with calls to the single function in the Percepts Function App (HandlePlayerCard).  The query to run in the job is in the blog post
-
-12. Configure VLC to use the "Scene Filter" to create a single, updating frame image on the local machine 
-
-13. In the Percept Functions configuration add:
+14. In the Percept Functions configuration add:
 
     1. The lockfile container and lockfile filename
 
@@ -63,30 +61,30 @@ Please read the blog post for a full description of the solution, however, the i
 
     5. The access key to the runtime storage account
 
-13. In the ContinuousFileTransfer application configure
+15. In the ContinuousFileTransfer application configure
 
     1. The frames container and frame filename
 
     2. The VLC "Scene Filter" location information
 
-14. In the Holdem Functions configuration add:
+16. In the Holdem Functions configuration add:
     1. The digital twins instance URL
     2. The access key to the runtime storage account
     3. The Card Image location and a SAS key (from the Archive Storage Account)
 
 **Starting Up**
 
-15. Turn on the Azure Percept DK
+17. Turn on the Azure Percept DK
 
-16. Start both function apps
+18. Start both function apps
 
-17. Start the Streaming Analytics job
+19. Start the Streaming Analytics job
 
-18. Start the ContinuousFileTransfer application
+20. Start the ContinuousFileTransfer application
 
-19. Start VLC.  You want to stream: rtsp://192.168.1.31:8554/raw, where substitute 192.168.1.31 for the IP address of your Percept
+21. Start VLC.  You want to stream: rtsp://192.168.1.31:8554/raw, where substitute 192.168.1.31 for the IP address of your Percept
 
-21. Run the bot from where ever you deployed it.  You can run it from the Azure Test Web Chat panel in the Azure Portal or deploy it anywhere a bot can be deployed
+22. Run the bot from where ever you deployed it.  You can run it from the Azure Test Web Chat panel in the Azure Portal or deploy it anywhere a bot can be deployed
 
 Although there will be no updates to this repo, there will be no updates except that I will attempt to update all of the C# code (functions and ContinuousFileTransfer) to .Net 6 and Visual Studio 2022 in the December-January timeframe.
 
