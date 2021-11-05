@@ -64,15 +64,10 @@ Please read the blog post for a full description of the solution, however, the i
 **Starting Up**
 
 17. Turn on the Azure Percept DK
-
 18. Start both function apps
-
 19. Start the Streaming Analytics job
-
 20. Start the ContinuousFileTransfer application
-
 21. Start VLC.  You want to stream: rtsp://192.168.1.31:8554/raw, where substitute 192.168.1.31 for the IP address of your Percept
-
 22. Run the bot from where ever you deployed it.  You can run it from the Azure Test Web Chat panel in the Azure Portal or deploy it anywhere a bot can be deployed
 
 Although there will be no updates to this repo, there will be no updates except that I will attempt to update all of the C# code (functions and ContinuousFileTransfer) to .Net 6 and Visual Studio 2022 in the December-January timeframe.
