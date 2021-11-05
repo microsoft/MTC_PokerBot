@@ -14,7 +14,7 @@ This code consists of the following:
     * ContinuousFileTransfer, a piece of code to run in the background and transfer the images from VLC into Azure Blob Storage
 * PokerBot/PokerBot Directory
   * PokerBot.sln
-    * Poker Bot for publishing to Azure using the Bot Framework Composer
+    * Poker Bot for publishing to Azure using the Bot Framework Composer, Version 2.1.1
 * PokerBot/AdaptiveCards Directoyr
   * PlayerHandTemplate.json, the adaptive card template, which is also installed in PokerBot.sln
 * The Suite ML Model (**still to be uploaded, coming soon**)
