@@ -45,28 +45,17 @@ Please read the blog post for a full description of the solution, however, the i
 9. Deploy the function code to Azure
 10. Deploy the Bot code to Azure, you will need the urls of the Azure Function App(s) as part of the configuration in the Bot Framework Composer Solution
 11. Modify the Azure Percept IoT Hub device twin so that the Azure Percept uploads the Suite Model on startup (in the azureeyemodel)
-
 12. Configure the Azure Stream Analytics Job to read from the IoT Hub and to output with calls to the single function in the Percepts Function App (HandlePlayerCard).  The query to run in the job is in the blog post
-
 13. Configure VLC to use the "Scene Filter" to create a single, updating frame image on the local machine 
-
 14. In the Percept Functions configuration add:
-
     1. The lockfile container and lockfile filename
-
     2. The frames container and frame filename
     3. The Azure ComputerVision  and Azure FormsRecognizer account information and keys
-
     4. The PlayerCard function url
-
     5. The access key to the runtime storage account
-
 15. In the ContinuousFileTransfer application configure
-
     1. The frames container and frame filename
-
     2. The VLC "Scene Filter" location information
-
 16. In the Holdem Functions configuration add:
     1. The digital twins instance URL
     2. The access key to the runtime storage account
