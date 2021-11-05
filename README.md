@@ -69,11 +69,8 @@ Please read the blog post for a full description of the solution, however, the i
     2. The VLC "Scene Filter" location information
 
 14. In the Holdem Functions configuration add:
-
     1. The digital twins instance URL
-
     2. The access key to the runtime storage account
-
     3. The Card Image location and a SAS key (from the Archive Storage Account)
 
 **Starting Up**
