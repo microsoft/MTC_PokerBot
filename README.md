@@ -22,7 +22,7 @@ This code consists of the following:
 
 You will also need VLC: [VLC](https://www.videolan.org/vlc/)
 
-I am unable to place the card images in this repo, but you can download them yourselves at: [American Contract Bridge League Resource Center](https://acbl.mybigcommerce.com/)52-playing-cards/
+I am unable to place the card images in this repo, but you can download them yourselves at: [American Contract Bridge League Resource Center](https://acbl.mybigcommerce.com/52-playing-cards/)
 
 Please read the blog post for a full description of the solution, however, the installation steps are:
 
