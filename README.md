@@ -75,11 +75,15 @@ Please read the blog post for a full description of the solution, however, the i
 
 There will be no planned updates to this repo, however, I will attempt to update all of the C# code (functions and ContinuousFileTransfer) to .Net 6 and Visual Studio 2022 in the December 2021-January 2022 timeframe.
 
+## Architecture
+
+![Poker Architecture](https://github.com/microsoft/MTC_PokerBot/blob/main/images/Poker-Architecture.png)
+
 ## Game Logic Functions
 
 These are the game logic functions.  Below the table is a description of how they are used:
 
-pic here
+![Game Logic Functions](https://github.com/microsoft/MTC_PokerBot/blob/main/images/Game-Logic-Functions.png)
 
 In non-camera mode, CreateGame is called first and just returns success or failure.  PlayerCard is then called twice, also returning success or failure.  The Bot does keep track of how many times it has been called.  Similarly, FlopTurnRiver causes the cards to be dealt within the Azure Digital Twins game model, but only returns success or failure.  After any call to FlopTurnRiver or a second call to PlayerCard, GetCurrentGameStatus is called.  It returns a full JSON representation of the game, the cards in the game as they are related to hands, and all the statistics that the Bot would need to display to the user.  The Bot merely picks the relevant information out of the structure and displays it to the player. 
 Many of the functions require the player’s name as input, as it is a label within the digital twin.  PlayerCard and FlopTurnRiver do not require this since they need to request this information from the digital twin anyway.  The parameter is supplied to GetCurrentGameStatus and GetNumPlayerCards as a performance enhancement.
@@ -120,7 +124,7 @@ To this:
 
 When I was finished, I had two separate Bots, which were identical in functionality and very similar in form.  The PVA bot is on the left.
 
-pic here
+![Bot Version Project Comparison](https://github.com/microsoft/MTC_PokerBot/blob/main/images/bot-version-comparison.png)
 
 ## Game Specific DigitalTwinLibrary Implementation
 
