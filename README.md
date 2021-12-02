@@ -1,6 +1,6 @@
 # PokerBot
 
-This repo is the source code for the Azure Digital Twins/Azure Percept DK PokerBot as described in the blog: **URL-Coming-Soon**
+This repo is the source code for the Azure Digital Twins/Azure Percept DK PokerBot as described in the blog: https://techcommunity.microsoft.com/t5/internet-of-things-blog/playing-poker-with-azure-iot/ba-p/3020447
 
 This code consists of the following:
 * DigitalTwinsPoker Directory
