@@ -275,7 +275,7 @@ public static async Task UpdateHandInfo(DigitalTwinsClient dtclient, BasicDigita
 
 This project is for demo purposes only, and there is no guarantee that it will ever be updated or maintained in any manner.  Similarly, you may add questions or problems in GitHub issues, however, there is no guarantee that they will be read or responded to by the repo owner.
 
-If you like this project and want to turn it into an ongoing project in any manner, you are welcome to make a copy of the repo, as long as the license terms are kept in tact.
+If you like this project and want to turn it into an ongoing project in any manner, you are welcome to make a copy of the repo, as long as the license terms are kept intact.
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
