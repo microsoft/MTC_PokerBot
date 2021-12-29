@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31515.178
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HoldemFunctions", "HoldemFunctions\HoldemFunctions.csproj", "{CBE8B882-AB7F-47C3-B632-AA716FAAD9A5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CardDataAndMath", "CardDataAndMath\CardDataAndMath.csproj", "{79A26A05-984A-4D66-B7C9-38D6DCB54FA0}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandLineHoldem", "CommandLineHoldem\CommandLineHoldem.csproj", "{3001D720-835C-402A-8C1A-643FC0AB2A86}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContinuousFileTransfer", "ContinuousFileTransfer\ContinuousFileTransfer.csproj", "{86ECBCC2-D064-4D1A-B9DE-BE7BBE00CE43}"
 EndProject
@@ -31,10 +29,6 @@ Global
 		{79A26A05-984A-4D66-B7C9-38D6DCB54FA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79A26A05-984A-4D66-B7C9-38D6DCB54FA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79A26A05-984A-4D66-B7C9-38D6DCB54FA0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3001D720-835C-402A-8C1A-643FC0AB2A86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3001D720-835C-402A-8C1A-643FC0AB2A86}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3001D720-835C-402A-8C1A-643FC0AB2A86}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3001D720-835C-402A-8C1A-643FC0AB2A86}.Release|Any CPU.Build.0 = Release|Any CPU
 		{86ECBCC2-D064-4D1A-B9DE-BE7BBE00CE43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{86ECBCC2-D064-4D1A-B9DE-BE7BBE00CE43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86ECBCC2-D064-4D1A-B9DE-BE7BBE00CE43}.Release|Any CPU.ActiveCfg = Release|Any CPU

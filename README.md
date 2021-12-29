@@ -5,7 +5,7 @@ This repo is the source code for the Azure Digital Twins/Azure Percept DK PokerB
 This code consists of the following:
 * DigitalTwinsPoker Directory
   * DigitalTwinsPoker.sln
-    * Azure Function Code, written in C#, .Net Core 3.1, Successfully compiled using Visual Studio Enterprise 2019, Version 16.11.5
+    * Azure Function Code, written in C#, .Net 6, Successfully compiled using Visual Studio Enterprise 2022, Version 17.0.4
       * HoldemFunctions, the game playing functions
       * PerceptFunctions, the function for reading the Suite Identifier model output
       * DigitalTwinLibrary, for interfacing with Azure Digital Twins (only useful for this implementation)
@@ -23,6 +23,8 @@ This code consists of the following:
 You will also need VLC: [VLC](https://www.videolan.org/vlc/)
 
 I am unable to place the card images in this repo, but you can download them yourself at: [American Contract Bridge League Resource Center](https://acbl.mybigcommerce.com/52-playing-cards/)
+
+.Net Core 3.1 version: commit 38f773df822dd3bb696600efc1fca99af20fc73a on Dec 2, 2021 contains the working .Net Core 3.1 version, Successfully compiled using Visual Studio Enterprise 2019, Version 16.11.5
 
 ## Installation and Execution
 
@@ -72,8 +74,6 @@ Please read the blog post for a full description of the solution, however, the i
 20. Start the ContinuousFileTransfer application
 21. Start VLC.  You want to stream: rtsp://192.168.1.31:8554/raw, where substitute 192.168.1.31 for the IP address of your Percept
 22. Run the bot from where ever you deployed it.  You can run it from the Azure Test Web Chat panel in the Azure Portal or deploy it anywhere a bot can be deployed
-
-There will be no planned updates to this repo, however, I will attempt to update all of the C# code (functions and ContinuousFileTransfer) to .Net 6 and Visual Studio 2022 in the December 2021-January 2022 timeframe.
 
 ## Architecture
 

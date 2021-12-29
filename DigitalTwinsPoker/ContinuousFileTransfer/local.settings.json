@@ -1,5 +1,6 @@
 {
-  "GAMESTORAGECONNECTIONSTRING": "",
+  "GAMESTORAGECONNECTIONSTRING": "DefaultEndpointsProtocol=https;AccountName=dtpokerfunctionstorage;AccountKey=2dGlEuYN+5MRUxWJMpTdn+8NeTe5+a6jtCLrYFAHn8yTN33wxuhlEvyW9Dhe2JpsxWSW0au7wCALON0C/0Zbfw==;EndpointSuffix=core.windows.net",
+  "ContainerName": "frames",
   "BlobName": "cards.png",
   "FileToUpload": "C:\\scratch\\VideoCards\\cards.png",
   "RefreshMS": "750"
